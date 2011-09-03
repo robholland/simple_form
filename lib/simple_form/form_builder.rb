@@ -85,7 +85,7 @@ module SimpleForm
     # given SimpleForm.time_zone_priority and SimpleForm.country_priority are used respectivelly.
     #
     def input(attribute_name, options={}, &block)
-      SimpleForm.components.render find_input(attribute_name, options, &block)
+      SimpleForm.wrapper.render find_input(attribute_name, options, &block)
     end
     alias :attribute :input
 
