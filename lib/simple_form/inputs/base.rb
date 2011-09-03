@@ -42,10 +42,14 @@ module SimpleForm
         @options            = options
         @required           = calculate_required
         @input_html_options = html_options_for(:input, input_html_classes).tap do |o|
-          o[:required]  = true if has_required?
           o[:disabled]  = true if has_disabled?
           o[:autofocus] = true if has_autofocus?
         end
+      end
+
+      def html5
+        add_required!
+        nil
       end
 
       def input

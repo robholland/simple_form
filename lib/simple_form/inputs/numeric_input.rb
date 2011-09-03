@@ -3,11 +3,15 @@ module SimpleForm
     class NumericInput < Base
       enable :placeholder
 
+      def html5
+        input_html_options[:type] ||= "number"
+        input_html_options[:step] ||= integer? ? 1 : "any"
+        infer_attributes_from_validations!
+        super
+      end
+
       def input
-        input_html_options[:type] ||= "number" if SimpleForm.html5
         input_html_options[:size] ||= nil
-        input_html_options[:step] ||= integer? ? 1 : "any" if SimpleForm.html5
-        infer_attributes_from_validations! if SimpleForm.html5
         @builder.text_field(attribute_name, input_html_options)
       end
 

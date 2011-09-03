@@ -3,7 +3,7 @@ module SimpleForm
     # Helper methods for maxlength.
     module Maxlength #:nodoc:
       def has_maxlength?
-        SimpleForm.html5
+        true
       end
 
       private
