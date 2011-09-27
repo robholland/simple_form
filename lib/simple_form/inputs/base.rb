@@ -58,7 +58,7 @@ module SimpleForm
       end
 
       def input_html_classes
-        [input_type, required_class, disabled_class].compact
+        [input_type, required_class, disabled_class, input_class].compact
       end
 
       def has_autofocus?
@@ -73,6 +73,12 @@ module SimpleForm
 
       def limit
         column && column.limit
+      end
+
+      def input_class
+        return if options[:input_class] == false
+
+        SimpleForm.input_class
       end
 
       # Find reflection name when available, otherwise use attribute

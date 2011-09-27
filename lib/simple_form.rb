@@ -112,6 +112,10 @@ module SimpleForm
   mattr_accessor :button_class
   @@button_class = 'button'
 
+  # Adds a class to each generated inputs
+  mattr_accessor :input_class
+  @@input_class = nil
+
   ## WRAPPER CONFIGURATION
   @@wrappers = {}
 

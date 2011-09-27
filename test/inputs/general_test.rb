@@ -15,6 +15,20 @@ class InputTest < ActionView::TestCase
     assert_select 'select.datetime'
   end
 
+  test 'input should accepts input class configuration' do
+    swap SimpleForm, :input_class => :xlarge do
+      with_input_for @user, :name, :string
+      assert_select 'input.xlarge'
+    end
+  end
+
+  test 'input should disable the input class configuration with an option' do
+    swap SimpleForm, :input_class => :xlarge do
+      with_input_for @user, :name, :string, :input_class => false
+      assert_no_select 'input.xlarge'
+    end
+  end
+
   test 'input should generate autofocus attribute based on the autofocus option' do
     with_input_for @user, :name, :string, :autofocus => true
     assert_select 'input.string[autofocus]'

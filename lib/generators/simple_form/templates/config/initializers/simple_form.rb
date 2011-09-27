@@ -85,4 +85,7 @@ SimpleForm.setup do |config|
 
   # Default class for buttons
   # config.button_class = 'button'
+
+  # Default class for inputs
+  # config.input_class = nil
 end
